@@ -43,16 +43,16 @@ g1 <-ggplot(folder.frq2, aes(x=ALLE2.frq)) +
   theme_bw()
 
 ##To graph the major allele (number 1)
-g2 <- ggplot(folder.frq2, aes(x=ALLE1.frq)) +
+#g2 <- ggplot(folder.frq2, aes(x=ALLE1.frq)) +
   geom_histogram(aes(y=(..count..)/sum(..count..))) +
   xlab ("Major allele frequency") + ylab("Percentage") +  
   theme_bw()
 
 #To put the 2 plots together 
-g3 <- grid.arrange(g1, g2, nrow = 1)
+#g3 <- grid.arrange(g1, g2, nrow = 1)
 
 #To save the plot
-ggsave(paste0("../figures/", ParamFolder, "_FSplot.tiff"), plot = g3,
+ggsave(paste0("../figures/", ParamFolder, "_FSplot.tiff"), plot = g1,
        width = 10, height = 7, dpi = 300) 
 
 
