@@ -1,6 +1,4 @@
-#Change language settings in English (to get error/comment messages in English).
-Sys.setenv(LANG = "en") 
-
+#To the graph the minor allele frequency (number 2) or minor and major allele frequency.
 #Packages needed:
 library(ggplot2)
 library(tidyr)
@@ -36,13 +34,13 @@ folder.frq2 <- separate(data = folder.frq,
   mutate(., ALLE1.frq= as.numeric(ALLE1.frq)) %>%
   mutate(., ALLE2.frq= as.numeric(ALLE2.frq))
 
-##To graph the minor allele (number 2)
+##To graph the minor allele frequency (number 2)
 g1 <-ggplot(folder.frq2, aes(x=ALLE2.frq)) +
   geom_histogram(aes(y=(..count..)/sum(..count..))) +
   xlab ("Minor allele frequency") + ylab("Percentage") +  
   theme_bw()
 
-##To graph the major allele (number 1)
+##To graph the major allele frequency (number 1)
 #g2 <- ggplot(folder.frq2, aes(x=ALLE1.frq)) +
   geom_histogram(aes(y=(..count..)/sum(..count..))) +
   xlab ("Major allele frequency") + ylab("Percentage") +  

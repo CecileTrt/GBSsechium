@@ -6,3 +6,33 @@ date: '2022-05-23'
 El chayote (Sechium edule) es una trepadora herbácea perenne diploide, con 28 cromosomas (2n = 28), que pertenece a la familia de las Cucurbitaceas (Lira et al. 1999). Su fruto es una calabaza que se consume como vegetal y los tubérculos también se utilizan como fuente de alimento. Se cree que el chayote es originario de México, donde ha sido cultivado por más de 500 años. Actualmente el género Sechium cuenta con cinco taxa nativos de México, cuatro silvestres (Sechium hintonii, S. compositum, S. chinantlense, S. edule ssp. sylvestre) y uno cultivado (Sechium edule ssp. Edule). 
 Pero las necesidades alimentarias y la degradación ambiental del país han generado presiones sobre los cultivos tradicionales y sus parientes silvestres, poniendo en riesgo tanto a las poblaciones silvestres, así como a las variedades cultivadas tradicionalmente del género. 
 En mi proyecto de doctorado, se propone, evaluar la diversidad genómica del género, realizar análisis de genómica de poblaciones, de filogeografía, de evolución molecular para estudiar los procesos de evolución y de domesticación. También, determinar patrones de aislamiento y flujo genético, eventos demográficos, y genes que podrían ser relacionados con adaptación a condiciones locales y a la domesticación. Esto con el fin de elaborar planes de conservación y manejo que integren el conocimiento de los procesos evolutivos y aspectos prácticos de la producción agrícola.
+
+Material y método:
+Para el proyecto de la tarea final, elegí de analizar la especie Sechium edule ssp. edule con 6 áreas diferentes que incluyen entre 5 a 10 individuos. Los análisis que voy a presentar fueron hechos con aproximadamente 10% de mis secuencias totales, porque el total de mis secuencias están todavía procesando (Ipyrad) con una computadora del instituto de ecología desde el 19/05/2022.
+
+```{r echo=FALSE}
+source("MapTareaFinal.R")
+dfMexicoRegion <- getData("GADM", country = "MEXICO", level = 1) %>% st_as_sf()
+dfMexicoRegion %>% 
+  ggplot()+
+  geom_sf() +
+  coord_sf(xlim=c(-101,-89.5), ylim=c(14,22.7), expand = FALSE) + #To define the map limitation
+  annotation_scale(location = "bl", width_hint = 0.5) + #To add a scale bar
+  annotation_north_arrow(location = "bl", which_north = "true", pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"), style = north_arrow_fancy_orienteering) + #To add an arrow showing the north direction
+  xlab("") + ylab ("") +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "white")) + #To set the colors of the map
+  geom_point(data=Comitan, aes(Longitud, Latitud), col="#662497") + #To plot each area with a different color 
+  geom_point(data=Cuicatlan, aes(Longitud, Latitud), col="red") +
+  geom_point(data=EDO.CUE, aes(Longitud, Latitud), col="#28a7ef")+
+  geom_point(data=San_Cristobal, aes(Longitud, Latitud), col="#2daa71")+
+  geom_point(data=Tuxtla, aes(Longitud, Latitud), col="#e947c2") +
+  geom_point(data = Xalalpa, aes(Longitud, Latitud), col="blue")
+```
+
+
+
+
+
+
+
+
