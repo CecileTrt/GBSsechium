@@ -1,5 +1,5 @@
 ---
-title: "Resumen"
+title: "Tarea Final"
 author: "Cécile Truchot Taillefer"
 output: html_document
 date: '2022-05-23'
@@ -13,8 +13,8 @@ Pregunta por la tarea final: ver si podemos diferenciar genéticamente los indiv
 Material:
 Para el proyecto de la tarea final, elegí de hacer analysis con la especie Sechium edule ssp. edule con 6 áreas diferentes que incluyen entre 6 a 10 individuos por areas geographicas. 
 
-```{r echo=FALSE}
-source("MapTareaFinal.R")
+```{r echo=FALSE, message=FALSE}
+source("1.MapTareaFinal.R")
 dfMexicoRegion <- getData("GADM", country = "MEXICO", level = 1) %>% st_as_sf()
 dfMexicoRegion %>% 
   ggplot()+
@@ -24,14 +24,28 @@ dfMexicoRegion %>%
   annotation_north_arrow(location = "bl", which_north = "true", pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"), style = north_arrow_fancy_orienteering) + #To add an arrow showing the north direction
   xlab("") + ylab ("") +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "white")) + #To set the colors of the map
-  geom_point(data=Comitan, aes(Longitud, Latitud), col="#662497") + #To plot each area with a different color 
+  geom_point(data=Comitan, aes(Longitud, Latitud), col="brown") + #To plot each area with a different color 
   geom_point(data=Cuicatlan, aes(Longitud, Latitud), col="red") +
-  geom_point(data=EDO.CUE, aes(Longitud, Latitud), col="#28a7ef")+
+  geom_point(data=EDO.CUE, aes(Longitud, Latitud), col="orange")+
   geom_point(data=San_Cristobal, aes(Longitud, Latitud), col="#2daa71")+
   geom_point(data=Tuxtla, aes(Longitud, Latitud), col="#e947c2") +
   geom_point(data = Xalalpa, aes(Longitud, Latitud), col="blue")
 ```
+
+
+Fig. 1: Localización de los individuos según el área representada por un punto de color. Naranja: Estado de Mexico/Cuernavaca (10 individuos), azul: Xalapa (8 individuos), rojo: Cuicatlan (6 individuos), pink: Tuxtla Gutierrez (7 individuos), verde: San Cristobal de las Casas (8 individuos) y marrón: Comitan (7 individuos).
+
 Métodos y resultados:
+
+```{r echo=FALSE, message=FALSE}
+source("2.HeatmapFST.R")
+
+```
+
+```{r echo=FALSE, message=FALSE}
+source("3.FrequencySpectrum.R")
+```
+
 
 
 
