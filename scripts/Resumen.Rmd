@@ -1,5 +1,6 @@
 ---
 title: "Resumen"
+author: "Cécile Truchot Taillefer"
 output: html_document
 date: '2022-05-23'
 ---
@@ -7,8 +8,10 @@ El chayote (Sechium edule) es una trepadora herbácea perenne diploide, con 28 c
 Pero las necesidades alimentarias y la degradación ambiental del país han generado presiones sobre los cultivos tradicionales y sus parientes silvestres, poniendo en riesgo tanto a las poblaciones silvestres, así como a las variedades cultivadas tradicionalmente del género. 
 En mi proyecto de doctorado, se propone, evaluar la diversidad genómica del género, realizar análisis de genómica de poblaciones, de filogeografía, de evolución molecular para estudiar los procesos de evolución y de domesticación. También, determinar patrones de aislamiento y flujo genético, eventos demográficos, y genes que podrían ser relacionados con adaptación a condiciones locales y a la domesticación. Esto con el fin de elaborar planes de conservación y manejo que integren el conocimiento de los procesos evolutivos y aspectos prácticos de la producción agrícola.
 
-Material y método:
-Para el proyecto de la tarea final, elegí de analizar la especie Sechium edule ssp. edule con 6 áreas diferentes que incluyen entre 5 a 10 individuos. Los análisis que voy a presentar fueron hechos con aproximadamente 10% de mis secuencias totales, porque el total de mis secuencias están todavía procesando (Ipyrad) con una computadora del instituto de ecología desde el 19/05/2022.
+Pregunta por la tarea final: ver si podemos diferenciar genéticamente los individuos de las diferentes áreas definidas según un gradiente ambiental, o si podemos al contrario agruparlos.  Y con los espectros de frecuencia, si podemos detectar un comportamiento demográfico diferente al dentro de estas áreas. 
+
+Material:
+Para el proyecto de la tarea final, elegí de hacer analysis con la especie Sechium edule ssp. edule con 6 áreas diferentes que incluyen entre 6 a 10 individuos por areas geographicas. 
 
 ```{r echo=FALSE}
 source("MapTareaFinal.R")
@@ -28,7 +31,12 @@ dfMexicoRegion %>%
   geom_point(data=Tuxtla, aes(Longitud, Latitud), col="#e947c2") +
   geom_point(data = Xalalpa, aes(Longitud, Latitud), col="blue")
 ```
+Métodos y resultados:
 
+
+
+Perspectiva:
+En siguiente paso sería para cada población, simular diferentes escenarios demográficos neutrales con simulaciones de coalescencia con programas como Mlcoalsim y fastSimCoal. Para cada modelo simulado, se estimarán los estadísticos como D’ de Tajima, FST, HE, que se compararán con los valores observados para el total de los genes, y en cada población o grupo filogeográfico con el método de máxima verosimilitud disponible en Mlcoalsim. El modelo neutral que tendrá el mayor valor de verosimilitud será el más compatible con los datos observados. Los resultados serán interpretados en función de cada población y su ambiente.
 
 
 
