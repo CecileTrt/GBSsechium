@@ -1,17 +1,25 @@
 ---
-title: "Tarea Final"
+title: "Evolución Molecular Adaptativa - Proyecto final"
 author: "Cécile Truchot Taillefer"
-output: html_document
-date: '2022-05-23'
+output:
+  word_document: default
+  html_document: default
 ---
-El chayote (Sechium edule) es una trepadora herbácea perenne diploide, con 28 cromosomas (2n = 28), que pertenece a la familia de las Cucurbitaceas (Lira et al. 1999). Su fruto es una calabaza que se consume como vegetal y los tubérculos también se utilizan como fuente de alimento. Se cree que el chayote es originario de México, donde ha sido cultivado por más de 500 años. Actualmente el género Sechium cuenta con cinco taxa nativos de México, cuatro silvestres (Sechium hintonii, S. compositum, S. chinantlense, S. edule ssp. sylvestre) y uno cultivado (Sechium edule ssp. Edule). 
+
+## Introduction
+
+El chayote (*Sechium edule ssp. edule*) es una trepadora herbácea perenne diploide, con 28 cromosomas (2n = 28), que pertenece a la familia de las Cucurbitaceas (Lira et al. 1999). Su fruto es una calabaza que se consume como vegetal y los tubérculos también se utilizan como fuente de alimento. Se cree que el chayote es originario de México, donde ha sido cultivado por más de 500 años. Actualmente el género Sechium cuenta con cinco taxa nativos de México, cuatro silvestres (*Sechium hintonii, S. compositum, S. chinantlense, S. edule ssp. sylvestre*) y uno cultivado (*Sechium edule ssp. Edule*). 
 Pero las necesidades alimentarias y la degradación ambiental del país han generado presiones sobre los cultivos tradicionales y sus parientes silvestres, poniendo en riesgo tanto a las poblaciones silvestres, así como a las variedades cultivadas tradicionalmente del género. 
-En mi proyecto de doctorado, se propone, evaluar la diversidad genómica del género, realizar análisis de genómica de poblaciones, de filogeografía, de evolución molecular para estudiar los procesos de evolución y de domesticación. También, determinar patrones de aislamiento y flujo genético, eventos demográficos, y genes que podrían ser relacionados con adaptación a condiciones locales y a la domesticación. Esto con el fin de elaborar planes de conservación y manejo que integren el conocimiento de los procesos evolutivos y aspectos prácticos de la producción agrícola.
+Durante mi doctorado, tendré que es determinar entre y dentro de las especies si hay flujo genético, los eventos demográficos, y genes que podrían ser relacionados con adaptación a condiciones locales y a la domesticación.
 
-Pregunta por la tarea final: ver si podemos diferenciar genéticamente los individuos de las diferentes áreas definidas según un gradiente ambiental, o si podemos al contrario agruparlos.  Y con los espectros de frecuencia, si podemos detectar un comportamiento demográfico diferente al dentro de estas áreas. 
+### Objectivos:  
 
-Material:
-Para el proyecto de la tarea final, elegí de hacer analysis con la especie Sechium edule ssp. edule con 6 áreas diferentes que incluyen entre 6 a 10 individuos por areas geographicas. 
+Ver si hay diferenciación genética entre los individuos de las diferentes áreas definidas según un gradiente ambiental.  
+Ver si hay un escenario demográfico diferente entre estas áreas (expansión o contracción).
+
+## Material:
+
+Para el proyecto de la tarea final, elegí de hacer analysis con la especie *Sechium edule ssp. edule* con 6 áreas diferentes que incluyen entre 6 a 10 individuos por areas geographicas. 
 
 ```{r echo=FALSE, message=FALSE}
 source("1.MapTareaFinal.R")
@@ -33,26 +41,40 @@ dfMexicoRegion %>%
 ```
 
 
-Fig. 1: Localización de los individuos según el área representada por un punto de color. Naranja: Estado de Mexico/Cuernavaca (10 individuos), azul: Xalapa (8 individuos), rojo: Cuicatlan (6 individuos), pink: Tuxtla Gutierrez (7 individuos), verde: San Cristobal de las Casas (8 individuos) y marrón: Comitan (7 individuos).
+*Fig. 1: Localización de los individuos según el área representada por un punto de color. Naranja: Estado de Mexico/Cuernavaca (10 individuos), azul: Xalapa (8 individuos), rojo: Cuicatlan (6 individuos), rosa: Tuxtla Gutierrez (7 individuos), verde: San Cristobal de las Casas (8 individuos) y marrón: Comitan (7 individuos).*
 
-Métodos y resultados:
+## Métodos y resultados:
+
+### Mapa de calor 
+Después la etapa de filtración, se obtuvieron 1599 SNPs por los 46 individuos. 
+Una mapa de calor fue diseñada, con las comparaciones pareadas de FST hecho con distancia de Nei (1987).
+Las valores de los FST obtenidas fueron entre -0.0195 <  Fst  < 0.0116, son muy bajas.
+Con estas valores, no puedo decir que hay una estructura genética.
+
 
 ```{r echo=FALSE, message=FALSE}
 source("2.HeatmapFST.R")
 
 ```
 
+*Fig 2. Mapa de calor por 6 grupos geographicos de Sechium edule spp. edule.*
+
+
+### Espectros de frecuencias alélicas 
+Dos tipos de espectros  de frecuencias alélicas que se diseñaron. El espectro tipo "Comitan" fue presente en 4/6 de los grupos. El espectro Edo/Cue fue también presente en el grupo de Cuicatlan. 
+
 ```{r echo=FALSE, message=FALSE}
 source("3.FrequencySpectrum.R")
 ```
 
+*Fig 3. Ejemplo de espectros de frecuencias alélicas diseñados con el allelo menor.*
 
+Hipótesis: los grupos de Cuicatla y de Edo/Cue tuvieron el mismo espectro de frecuencia que los otros grupos, tipo Comitán. Pero con una reducción de coalescencia, las mutaciones que fueron raras empezaron a devenir más comunes, y se acumulan un poco al centro del espectro de frecuencia.  
 
-
-Perspectiva:
-En siguiente paso sería para cada población, simular diferentes escenarios demográficos neutrales con simulaciones de coalescencia con programas como Mlcoalsim y fastSimCoal. Para cada modelo simulado, se estimarán los estadísticos como D’ de Tajima, FST, HE, que se compararán con los valores observados para el total de los genes, y en cada población o grupo filogeográfico con el método de máxima verosimilitud disponible en Mlcoalsim. El modelo neutral que tendrá el mayor valor de verosimilitud será el más compatible con los datos observados. Los resultados serán interpretados en función de cada población y su ambiente.
-
-
+## Perspectiva:
+- Hacer un espectro de frecuencias con Stacks y añadir un outgroup que podría ser *Sechium chinanlense* o otra especie ancestral del chayote.
+- Simular diferentes escenarios demográficos neutrales con simulaciones de coalescencia con programas como Mlcoalsim, fastSimCoal para cada grupo, y ver qué modelo será el más compatible con los datos observados.
+- Para cada modelo simulado, estimar los estadísticos como D’ de Tajima, FST, HE que se compararán con los valores observados.
 
 
 

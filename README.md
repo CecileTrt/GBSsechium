@@ -34,11 +34,10 @@ To be run by R, it should be used a ".frq" file, an output made by vcftools. The
 
 - "edule_edule.frq" contains all the individuals from the specie *Sechium edule spp. edule* (cf. edule_ind.txt).
 
-- "edule_outg.frq" contains all the individuals from the specie *Sechium edule spp. edule* (cf. edule_ind.txt) and an individual from the specie *Sechium chinantlense*.
 
 ## figures
 
-Figures of the sample locations, an heatmap pairwise Fst for the different areas and allele spectrum frequency barplots generated [from R](#scripts).
+Figures of the sample locations, an heatmap pairwise Fst for the different areas and allele spectrum frequency barplots generated for each area [from R](#scripts).
 
 ## meta
 Meta data needed to run the script ["1.MapTareaFinal.R"](#scripts)
@@ -48,11 +47,12 @@ Meta data needed to run the script ["1.MapTareaFinal.R"](#scripts)
 ## scripts
 The following script can be run in any order. The numbering refers to the order of the scripts used in the file "resumen.Rmd"
 
-- "1.MapTareaFinal.R" is to plot the location of each sample, the different areas are differentiated by different colors. To make it, it will be needed ["eduleTareafinal_pop.txt"](#meta)
+- "1.MapTareaFinal.R" is to plot the location of each sample, the different areas are differentiated by different colors. To make it, it will be needed ["eduleTareafinal_pop.txt"](#meta) and "gadm36_MEX_1_sp.rds" present in this same folder. 
 
 - "2.HeatmapFST.R" is to plot a pairwise FSTs according to Nei (1987). To make it, it will be needed ["edule_ind.txt", "edule_2allel_MAF5_missing20_HWE5.recode.vcf"](#data) in the data folder and ["eduleTareafinal_pop.txt"](#meta) in the meta folder. 
 
-- "3.FrequencySpectrum.R" is to graph the minor allele frequency spectrum, it can be used any of the [".frq"](#datadata) files of the data folder to make it.
+- "3.FrequencySpectrum.R" is to graph the minor allele frequency spectrum, it can be used any of the [".frq"](#data) files of the data folder to make it.
 
-- "Resumen.Rmd" is a summary of this work. 
+- "Resumen.Rmd" is a summary of this work. Available in different version: HTLM, Document Microsoft Word and PDF. 
 
+- "gadm36_MEX_1_sp.rds": file needed to plot the "1.MapTareaFinal.R" 
