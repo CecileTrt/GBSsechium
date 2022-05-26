@@ -6,7 +6,7 @@ output:
   html_document: default
 ---
 
-## Introduction
+## Introducción
 
 El chayote (*Sechium edule ssp. edule*) es una trepadora herbácea perenne diploide, con 28 cromosomas (2n = 28), que pertenece a la familia de las Cucurbitaceas (Lira et al. 1999). Su fruto es una calabaza que se consume como vegetal y los tubérculos también se utilizan como fuente de alimento. Se cree que el chayote es originario de México, donde ha sido cultivado por más de 500 años. Actualmente el género Sechium cuenta con cinco taxa nativos de México, cuatro silvestres (*Sechium hintonii, S. compositum, S. chinantlense, S. edule ssp. sylvestre*) y uno cultivado (*Sechium edule ssp. Edule*). 
 Pero las necesidades alimentarias y la degradación ambiental del país han generado presiones sobre los cultivos tradicionales y sus parientes silvestres, poniendo en riesgo tanto a las poblaciones silvestres, así como a las variedades cultivadas tradicionalmente del género. 
